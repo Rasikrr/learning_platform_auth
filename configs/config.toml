@@ -1,0 +1,52 @@
+[http]
+host = "localhost"
+required = false
+port = "8081"
+
+[logger]
+level = "info"
+
+[postgres]
+required = false
+max_conns = 10
+min_conns = 3
+max_idle_conn_time = "10m"
+
+[redis]
+required = false
+pool_size = 10
+min_idle_conns = 3
+max_idle_conns = 10
+read_timeout = "1m"
+
+
+[grpc]
+required = true
+port = 3009
+
+
+[env]
+[env.test]
+type = "string"
+name = "test"
+value = "test"
+envName = "TEST"
+required = true
+[env.test_duration]
+type = "duration"
+name = "test_duration"
+value = "10s"
+envName = "TEST_DURATION"
+required = true
+[env.test_float]
+type = "float"
+name = "test_float"
+value = 10.5
+envName = "TEST_FLOAT"
+required = true
+[env.test_bool]
+type = "bool"
+name = "test_bool"
+value = true
+envName = "TEST_BOOL"
+required = true
