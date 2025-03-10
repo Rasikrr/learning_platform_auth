@@ -17,8 +17,8 @@ project_structure:
 	mkdir -p internal/services
 	mkdir -p internal/clients
 	mkdir -p internal/brokers
-	mkdir -p internal/domains/entity
-	mkdir -p internal/domains/enum
+	mkdir -p internal/domain/entity
+	mkdir -p internal/domain/enum
 	mkdir -p internal/repositories
 	mkdir -p internal/util
 

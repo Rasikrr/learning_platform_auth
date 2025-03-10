@@ -34,7 +34,7 @@ proto:
 		--go-grpc_out="${PKG}" \
 		--go_opt="paths=source_relative" \
 		--go-grpc_opt="paths=source_relative" \
-		./api/proto/*/*/*.proto
+		./api/proto/*/*.proto
 	@echo "Files generated"
 
 proto_deps:

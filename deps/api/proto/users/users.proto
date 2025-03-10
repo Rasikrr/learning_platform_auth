@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/Rasikrr/learning_platform_users/pkg/server/users/grpc;users";
+
+package users;
+
+service Users{
+  rpc GetByEmail(GetByEmailRequest) returns (GetByEmailResponse){}
+  rpc Create(CreateUserRequest) returns (EmptySuccessResponse){}
+  rpc ResetPassword(ResetPasswordRequest) returns (EmptySuccessResponse){}
+
+}
+
+message ResetPasswordRequest{
+  string email = 1;
+  string passwordHash = 2;
+}
+
+
+message EmptySuccessResponse{
+}
+
+message CreateUserRequest{
+  User user = 1;
+}
+
+message User {
+  string id = 1;
+  optional string name = 2;
+  optional string last_name = 3;
+  string email = 4;
+  string password = 5;
+  string account_role = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
+  optional google.protobuf.Timestamp deleted_at = 9;
+}
+
+message GetByEmailRequest{
+  string email = 1;
+}
+
+message GetByEmailResponse{
+  User user = 1;
+}

@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+
+option go_package = "github.com/Rasikrr/learning_platform_auth/pkg/server/auth/grpc;users";
+
+
+package auth;
+
+
+service Auth {
+  rpc Register(RegisterRequest) returns (EmptySuccessResponse) {}
+  rpc ConfirmRegister(ConfirmRegisterRequest) returns (AuthResponse) {}
+  rpc ConfirmAdminRegister(ConfirmRegisterRequest) returns (AuthResponse) {}
+  rpc Login(LoginRequest) returns (AuthResponse) {}
+  rpc ResetPassword(ResetPasswordRequest) returns (EmptySuccessResponse) {}
+  rpc ConfirmResetPassword(ConfirmResetPasswordRequest) returns (EmptySuccessResponse) {}
+  rpc CheckToken(CheckTokenRequest) returns (CheckTokenResponse) {}
+  rpc RefreshToken(RefreshTokenRequest) returns (AuthResponse) {}
+}
+
+message RefreshTokenRequest{
+  string refresh_token = 1;
+}
+
+message CheckTokenRequest{
+  string token = 1;
+}
+
+message CheckTokenResponse{
+  Session session = 1;
+}
+
+message Session{
+  string user_id = 1;
+  string email = 2;
+  string role = 3;
+  map<string, string> claims = 4;
+}
+
+
+message ConfirmResetPasswordRequest{
+  string email = 1;
+  string code = 2;
+}
+
+
+message ResetPasswordRequest{
+  string email = 1;
+  string password = 2;
+  string password_confirmation = 3;
+}
+
+message LoginRequest{
+  string email = 1;
+  string password = 2;
+}
+
+message AuthResponse{
+  string access_token = 1;
+  string refresh_token = 2;
+}
+
+message RegisterRequest{
+  string email = 1;
+  string password = 2;
+  string password_confirmation = 3;
+}
+
+message EmptySuccessResponse{
+}
+
+
+message ConfirmRegisterRequest{
+  string email = 1;
+  string code = 2;
+}
+
+
