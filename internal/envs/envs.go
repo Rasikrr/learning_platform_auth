@@ -2,5 +2,6 @@ package envs
 
 const (
 	UsersGRPcAddress = "users_grpc_address"
-	JwtTTL           = "jwt_ttl"
+	AccessTokenTTL   = "access_token_ttl"
+	RefreshTokenTTL  = "refresh_token_ttl"
 )

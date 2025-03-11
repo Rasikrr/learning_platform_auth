@@ -1,7 +1,13 @@
 github.com/BurntSushi/toml v1.4.0 h1:kuoIxZQy2WRRk1pttg9asf+WVv6tWQuBNVmK8+nqPr0=
 github.com/BurntSushi/toml v1.4.0/go.mod h1:ukJfTF/6rtPPRCnwkur4qwRxa8vTRFBF0uk2lLoLwho=
-github.com/Rasikrr/learning_platform_core v0.0.20 h1:335OaQxuW0iEFw84qE8pPqoFjq+lzYh7jLLY6uNW1PI=
-github.com/Rasikrr/learning_platform_core v0.0.20/go.mod h1:dVGQuelhiUrY5mt8t/XgHUlRwM6yTaz/qwu6H74FmeQ=
+github.com/Rasikrr/learning_platform_core v0.0.21 h1:M5v4I68y8rHjJhoqwWEsmIyQo1hGRW6s7531yrTFGwI=
+github.com/Rasikrr/learning_platform_core v0.0.21/go.mod h1:dVGQuelhiUrY5mt8t/XgHUlRwM6yTaz/qwu6H74FmeQ=
+github.com/Rasikrr/learning_platform_core v0.0.22 h1:Ubu+FizS+7/6lJHsNoDWj8hmLP4ju/5q9JbYbpcJR7g=
+github.com/Rasikrr/learning_platform_core v0.0.22/go.mod h1:dVGQuelhiUrY5mt8t/XgHUlRwM6yTaz/qwu6H74FmeQ=
+github.com/Rasikrr/learning_platform_core v0.0.23 h1:KxVj4pe2zGAwuq4M9PXVvFRi9d7mIW3HNqo3QQmuA/E=
+github.com/Rasikrr/learning_platform_core v0.0.23/go.mod h1:dVGQuelhiUrY5mt8t/XgHUlRwM6yTaz/qwu6H74FmeQ=
+github.com/Rasikrr/learning_platform_core v0.0.26 h1:B7Fvm/+j9e97OsITVHKJA4b/LBbM/k5ANQWvIRxfWOs=
+github.com/Rasikrr/learning_platform_core v0.0.26/go.mod h1:dVGQuelhiUrY5mt8t/XgHUlRwM6yTaz/qwu6H74FmeQ=
 github.com/avast/retry-go v3.0.0+incompatible h1:4SOWQ7Qs+oroOTQOYnAHqelpCO0biHSxpiH9JdtuBj0=
 github.com/avast/retry-go v3.0.0+incompatible/go.mod h1:XtSnn+n/sHqQIpZ10K1qAevBhOOCWBLXXy3hyiqqBrY=
 github.com/bsm/ginkgo/v2 v2.12.0 h1:Ny8MWAHyOepLGlLKYmXG4IEkioBysk6GpaRTLC8zwWs=

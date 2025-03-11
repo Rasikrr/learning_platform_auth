@@ -2,10 +2,10 @@ module github.com/Rasikrr/learning_platform_auth
 
 go 1.23
 
-toolchain go1.23.7
+toolchain go1.23.6
 
 require (
-	github.com/Rasikrr/learning_platform_core v0.0.20
+	github.com/Rasikrr/learning_platform_core v0.0.26
 	github.com/google/uuid v1.6.0
 	github.com/mailru/easyjson v0.9.0
 	github.com/redis/go-redis/v9 v9.7.1

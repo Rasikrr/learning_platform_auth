@@ -1,64 +1,76 @@
 [http]
-host = "localhost"
-required = false
-port = "8081"
+    host = "localhost"
+    required = false
+    port = "8081"
 
 [logger]
-level = "info"
+    level = "info"
 
 [postgres]
-required = false
-max_conns = 10
-min_conns = 3
-max_idle_conn_time = "10m"
+    required = false
+    max_conns = 10
+    min_conns = 3
+    max_idle_conn_time = "10m"
 
 [redis]
-required = true
-pool_size = 10
-min_idle_conns = 3
-max_idle_conns = 10
-read_timeout = "1m"
+    required = true
+    pool_size = 10
+    min_idle_conns = 3
+    max_idle_conns = 10
+    read_timeout = "1m"
 
 
 [grpc]
-required = true
-port = 3001
+    required = true
+    port = 3001
 
 
 [env]
-[env.test]
-type = "string"
-name = "test"
-value = "test"
-envName = "TEST"
-required = true
-[env.test_duration]
-type = "duration"
-name = "test_duration"
-value = "10s"
-envName = "TEST_DURATION"
-required = true
-[env.test_float]
-type = "float"
-name = "test_float"
-value = 10.5
-envName = "TEST_FLOAT"
-required = true
-[env.test_bool]
-type = "bool"
-name = "test_bool"
-value = true
-envName = "TEST_BOOL"
-required = true
-[env.users_grpc_address]
-type = "string"
-name = "users_grpc_address"
-value = "localhost:3000"
-envName = "USERS_GRPC_ADDRESS"
-required = true
-[env.jwt_ttl]
-type = "duration"
-name = "jwt_ttl"
-value = "10m"
-envName = "JWT_TTL"
-required = true
+    [env.test]
+        type = "string"
+        name = "test"
+        value = "test"
+        envName = "TEST"
+        required = true
+
+    [env.test_duration]
+        type = "duration"
+        name = "test_duration"
+        value = "10s"
+        envName = "TEST_DURATION"
+        required = true
+
+    [env.test_float]
+        type = "float"
+        name = "test_float"
+        value = 10.5
+        envName = "TEST_FLOAT"
+        required = true
+
+    [env.test_bool]
+        type = "bool"
+        name = "test_bool"
+        value = true
+        envName = "TEST_BOOL"
+        required = true
+
+    [env.users_grpc_address]
+        type = "string"
+        name = "users_grpc_address"
+        value = "localhost:3000"
+        envName = "USERS_GRPC_ADDRESS"
+        required = true
+
+    [env.access_token_ttl]
+        type = "duration"
+        name = "access_token_ttl"
+        value = "10m"
+        envName = "access_token_ttl"
+        required = true
+
+    [env.refresh_token_ttl]
+        type = "duration"
+        name = "refresh_token_ttl"
+        value = "168h"
+        envName = "refresh_token_ttl"
+        required = true

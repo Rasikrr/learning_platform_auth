@@ -57,7 +57,8 @@ func (a *App) initClients(ctx context.Context) error {
 
 func (a *App) initServices(_ context.Context) error {
 	a.authService = authS.NewService(
-		a.Config().Env.Get(envs.JwtTTL).GetDuration(),
+		a.Config().Env.Get(envs.AccessTokenTTL).GetDuration(),
+		a.Config().Env.Get(envs.RefreshTokenTTL).GetDuration(),
 		a.authCache,
 		a.usersClient,
 	)

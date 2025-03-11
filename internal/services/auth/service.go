@@ -33,18 +33,20 @@ type Service interface {
 }
 
 type service struct {
-	tokenTTL    time.Duration
+	accessTTL   time.Duration
+	refreshTTL  time.Duration
 	cache       authC.Cache
 	usersClient usersC.Client
 }
 
 func NewService(
-	tokenTTL time.Duration,
+	accessTTL, refreshTTL time.Duration,
 	authCache authC.Cache,
 	usersClient usersC.Client,
 ) Service {
 	return &service{
-		tokenTTL:    tokenTTL,
+		accessTTL:   accessTTL,
+		refreshTTL:  refreshTTL,
 		cache:       authCache,
 		usersClient: usersClient,
 	}
@@ -61,7 +63,7 @@ func (s *service) Login(ctx context.Context, email, password string) (*entity.Au
 	if err := util.CheckPassword(user.Password, password); err != nil {
 		return nil, err
 	}
-	return generateTokens(user, s.tokenTTL)
+	return generateTokens(user, s.accessTTL, s.refreshTTL)
 }
 
 func (s *service) Register(ctx context.Context, email, password, passwordConfirm string) error {
@@ -163,7 +165,7 @@ func (s *service) ConfirmRegister(ctx context.Context, email, code string) (*ent
 		return nil, err
 	}
 
-	return generateTokens(user, s.tokenTTL)
+	return generateTokens(user, s.accessTTL, s.refreshTTL)
 }
 
 func (s *service) CheckToken(_ context.Context, token string) (*session.Session, error) {
@@ -193,7 +195,7 @@ func (s *service) RefreshToken(ctx context.Context, token string) (*entity.Auth,
 	if err != nil {
 		return nil, err
 	}
-	return generateTokens(user, s.tokenTTL)
+	return generateTokens(user, s.accessTTL, s.refreshTTL)
 }
 
 func (s *service) ConfirmAdminRegister(ctx context.Context, email, code string) (*entity.Auth, error) {
@@ -213,16 +215,16 @@ func (s *service) ConfirmAdminRegister(ctx context.Context, email, code string) 
 		return nil, err
 	}
 
-	return generateTokens(user, s.tokenTTL)
+	return generateTokens(user, s.accessTTL, s.refreshTTL)
 }
 
-func generateTokens(user *entity.User, ttl time.Duration) (*entity.Auth, error) {
+func generateTokens(user *entity.User, accessTTL, refreshTTL time.Duration) (*entity.Auth, error) {
 	ses := session.NewSession(user.ID, user.Email, user.AccountRole, nil)
-	accessToken, err := coreJwt.GenerateJwt(ses, ttl, false)
+	accessToken, err := coreJwt.GenerateJwt(ses, accessTTL, false)
 	if err != nil {
 		return nil, err
 	}
-	refreshToken, err := coreJwt.GenerateJwt(ses, ttl, true)
+	refreshToken, err := coreJwt.GenerateJwt(ses, refreshTTL, true)
 	if err != nil {
 		return nil, err
 	}

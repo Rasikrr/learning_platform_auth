@@ -14,9 +14,8 @@ func convertAuth(auth *entity.Auth) *pb.AuthResponse {
 }
 
 func convertSession(ses *session.Session) *pb.Session {
-	var claims map[string]string
+	claims := make(map[string]string)
 	if ses.Claims() != nil {
-		claims = make(map[string]string)
 		for k, v := range ses.Claims() {
 			val, ok := v.(string)
 			if !ok {
